@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ödeme Bilgileri</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 25px;
+        }
+
+        .label {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .iban {
+            background: #f1f1f1;
+            border-radius: 12px;
+            padding: 15px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            word-break: break-all;
+            margin-bottom: 18px;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            background: #111;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #message {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #555;
+            min-height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Ödeme Bilgileri</h1>
+
+        <div class="label">Alıcı</div>
+
+        <div class="name">
+            Yasin Kamer Güven
+        </div>
+
+        <div class="label">IBAN</div>
+
+        <div class="iban" id="iban">
+            TR400004600263888000203162
+        </div>
+
+        <button onclick="copyIBAN()">
+            IBAN'ı Kopyala
+        </button>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script>
+        function copyIBAN() {
+            const iban = "TR400004600263888000203162";
+
+            navigator.clipboard.writeText(iban).then(function() {
+                document.getElementById("message").innerText =
+                    "IBAN kopyalandı ✓";
+            }).catch(function() {
+                document.getElementById("message").innerText =
+                    "Kopyalama başarısız oldu.";
+            });
+        }
+    </script>
+
+</body>
+</html>
